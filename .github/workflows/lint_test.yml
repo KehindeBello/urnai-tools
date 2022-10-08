@@ -7,13 +7,14 @@ on:
 jobs:
   container-test-job:
     runs-on: ubuntu-latest
+    steps:
+      - name: Install make  
+        run: sudo apt-get update && sudo apt-get install make
+
     container: urnai/linter
     steps:
       - name: Check out repository
         uses: actions/checkout@v3
-
-      - name: Install make  
-        run: sudo apt-get update && sudo apt-get install make && make lint
 
       - name: Run lint
         run: make lint
