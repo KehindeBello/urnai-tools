@@ -11,7 +11,8 @@ jobs:
       runs-on: ubuntu-latest
       container: urnai/linter
       steps:
-        - uses: actions/checkout@v3
+        - name: Run lint
+          uses: actions/checkout@v3
           run: make lint
 
 ---
